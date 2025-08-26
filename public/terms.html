@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms and Conditions</title>
+
+  <style>
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #e74c3c;
+      --light-color: #ecf0f1;
+      --dark-color: #2c3e50;
+      --gray-color: #95a5a6;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #e7e5e5;
+      color: var(--dark-color);
+      line-height: 1.6;
+    }
+
+    /* HEADER */
+    .header {
+      background-color: #fff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--secondary-color);
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: var(--primary-color);
+    }
+
+    .nav-desktop {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .nav-desktop a {
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--dark-color);
+      transition: color 0.3s ease;
+    }
+
+    .nav-desktop a:hover {
+      color: var(--secondary-color);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--primary-color);
+    }
+
+    .nav-mobile {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background: #fff;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-mobile a {
+      padding: 10px 15px;
+      text-decoration: none;
+      color: var(--dark-color);
+      font-weight: 500;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    .nav-mobile a:hover {
+      background: #f2f2f2;
+    }
+
+    .nav-mobile.active {
+      display: flex;
+    }
+
+    /* SECTION */
+    section {
+      padding: 120px 20px 60px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .terms-box {
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .terms-box h3 {
+      margin-bottom: 15px;
+      color: var(--primary-color);
+    }
+
+    .terms-box ul {
+      margin-bottom: 25px;
+      padding-left: 20px;
+    }
+
+    .terms-box li {
+      margin-bottom: 10px;
+    }
+
+    /* FOOTER */
+    .footer {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 50px 20px 20px;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .footer-col h3 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: var(--secondary-color);
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer a:hover {
+      color: var(--secondary-color);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 30px;
+      font-size: 14px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .nav-desktop {
+        display: none;
+      }
+      .mobile-menu-btn {
+        display: block;
+      }
+      section {
+        padding: 100px 15px 40px;
+      }
+      .terms-box {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <a href="#" class="logo">Speed<span>Up</span></a>
+
+      <nav class="nav-desktop">
+        <a href="index1.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+
+      <nav class="nav-mobile" id="navMobile">
+        <a href="index1.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Terms Section -->
+  <section id="terms">
+    <div class="section-title">
+      <h1>Terms & Conditions</h1>
+      <p>Please read our terms of service before booking.</p>
+    </div>
+
+    <div class="terms-box">
+      <h3>Booking Terms</h3>
+      <ul>
+        <li>All bookings are subject to vehicle availability.</li>
+        <li>Cancellations must be made at least 2 hours before pickup time.</li>
+        <li>No-show after 15 minutes of waiting time will result in cancellation.</li>
+        <li>Additional charges apply for airport pickups and late-night rides.</li>
+      </ul>
+
+      <h3>Payment Terms</h3>
+      <ul>
+        <li>Payments can be made via cash, credit card, or mobile payment.</li>
+        <li>A 10% deposit is required for advance bookings.</li>
+        <li>Fares are calculated based on distance or duration, whichever is higher.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>SpeedUp</h3>
+        <p>Premium cab services for all your transportation needs. Safe, reliable, and comfortable rides at competitive prices.</p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#cars">Our Fleet</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#terms">Terms</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="#">Help Center</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Headquarters</h3>
+        <p>
+          Park Circus<br>
+          Kolkata, India<br>
+          PIN: 700124<br>
+          Phone: +91 9568274610<br>
+          Email: speedup@gmail.com
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2023 SpeedUp Cab Services. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Toggle mobile menu
+    document.getElementById("mobileMenuBtn").addEventListener("click", function () {
+      document.getElementById("navMobile").classList.toggle("active");
+    });
+  </script>
+</body>
+</html>

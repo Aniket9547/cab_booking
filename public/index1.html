@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpeedUp - Premium Cab Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e74c3c;
+            --accent-color: #3498db;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --gray-color: #95a5a6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .nav-desktop {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-desktop a {
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-desktop a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* NEW: Sign Up Button Styles */
+        .signup-btn {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .signup-btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+
+        .nav-mobile {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background: #fff;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .nav-mobile a {
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .nav-mobile a:hover {
+            background: #f2f2f2;
+        }
+
+        .nav-mobile.active {
+            display: flex;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            margin-top: 70px;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        /* Booking Form - Centered and Properly Aligned */
+        #bookingForm {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 30px auto;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        /* Fare Estimate Section */
+        .fare-estimate {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            width: 100%;
+            display: none;
+        }
+
+        .fare-estimate.active {
+            display: block;
+        }
+
+        .fare-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .fare-total {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+        }
+
+        /* Cars Section */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--gray-color);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .car-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .car-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .car-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .car-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .car-card:hover .car-img img {
+            transform: scale(1.1);
+        }
+
+        .car-info {
+            padding: 20px;
+        }
+
+        .car-info h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .car-type {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .car-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .car-features span {
+            background-color: var(--light-color);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .car-price {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+
+        /* promo section */
+
+        .promo-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        padding: 4rem 8%;
+        background: #fff;
+        }
+
+        .promo-text {
+        flex: 1;
+        }
+
+        .promo-text h2 {
+        font-size: 3.2rem;
+        font-weight: bold;
+        color: #222;
+        }
+
+        .promo-text h2 span {
+        color: var(--secondary-color); /* orange highlight */
+        }
+
+        .promo-text p {
+        margin: 1rem 0;
+        font-size: 1.55rem;
+        line-height: 1.6;
+        color: #555;
+        }
+
+        .promo-btn {
+        display: inline-block;
+        background: #111;
+        color: #fff;
+        padding: 0.8rem 1.5rem;
+        border-radius: 30px;
+        font-size: 1rem;
+        text-decoration: none;
+        transition: background 0.3s ease;
+        }
+
+        .promo-btn:hover {
+        background: #413a3a;
+        }
+
+        .promo-images {
+        flex: 1;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        }
+
+        .promo-images img {
+        width: 93%;
+        border-radius: 12px;
+        object-fit: cover;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 80px 0;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 30px;
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-details div {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-details i {
+            margin-right: 15px;
+            color: var(--secondary-color);
+            font-size: 20px;
+        }
+
+        /* how it works */
+        .how-it-works {
+        padding: 100px 40px; /* more top-bottom space */
+        text-align: center;
+        background: #ecf0f1;
+        }
+
+
+        .how-it-works h2 {
+        font-size: 40px;
+        margin-bottom: 20px;
+        position: relative;
+        display: inline-block;
+        }
+
+        .tabs {
+        margin-bottom: 40px;
+        }
+
+        .tabs button {
+        padding: 10px 20px;
+        margin: 0 5px;
+        border-radius: 20px;
+        border: 1px solid #000;
+        cursor: pointer;
+        font-size: 16px;
+        background: transparent;
+        }
+
+        .tabs button.active {
+        background: black;
+        color: white;
+        }
+
+        .steps {
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        gap: 30px;
+        flex-wrap: wrap;
+
+        }
+
+        .step {
+        flex: 1 1 300px;  
+        max-width: 300px;   
+        padding: 20px;      
+        box-sizing: border-box;
+        }
+
+        .icon {
+        width: 140px;
+        height: 140px;
+        margin: 0 auto 20px;
+        border-radius: 20px;
+        /* background: #0f1d3b; dark blue bg like your pic */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+
+        .icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+        }
+
+        .step h3 {
+        font-size: 27px;
+        margin-bottom: 12px;
+        }
+
+        .step p {
+        font-size: 20px;
+        color: #666;
+        }
+
+        @media (min-width: 992px) {
+        .step {
+            flex: 1 1 calc(33.333% - 40px); 
+        }
+        }
+
+        @media (max-width: 991px) and (min-width: 600px) {
+        .step {
+            flex: 1 1 calc(50% - 40px); 
+        }
+        }
+
+        @media (max-width: 599px) {
+        .step {
+            flex: 1 1 100%; 
+        }
+        }
+         /* Cab Tracking Modal Styles */
+        .cab-tracking-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .tracking-content {
+            background-color: white;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 450px;
+            overflow: hidden;
+            animation: modal-appear 0.5s ease-out;
+            position: relative;
+        }
+        
+        @keyframes modal-appear {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .close-tracking {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.1);
+            border: none;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            font-size: 20px;
+            color: #555;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s;
+        }
+        
+        .close-tracking:hover {
+            background: rgba(0, 0, 0, 0.15);
+            transform: rotate(90deg);
+        }
+        
+        .tracking-header {
+            background: linear-gradient(to right, #3498db, #2c3e50);
+            color: white;
+            padding: 25px 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .tracking-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+            }
+        }
+        
+        .tracking-header h2 {
+            font-weight: 600;
+            font-size: 22px;
+            margin-top: 5px;
+        }
+        
+        .driver-info {
+            display: flex;
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .driver-photo {
+            margin-right: 15px;
+        }
+        
+        .driver-photo img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #3498db;
+        }
+        
+        .driver-details {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .driver-name {
+            font-weight: 600;
+            font-size: 18px;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .driver-car {
+            color: #7f8c8d;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        .driver-rating {
+            display: flex;
+            align-items: center;
+        }
+        
+        .driver-rating i {
+            margin-right: 3px;
+        }
+        
+        .driver-rating span {
+            margin-left: 8px;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        
+        .tracking-status {
+            padding: 20px;
+            text-align: center;
+            background-color: #f9f9f9;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .tracking-status p {
+            color: #7f8c8d;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+        
+        .eta {
+            font-weight: 600;
+            font-size: 24px;
+            color: #2c3e50;
+        }
+        
+        #etaTime {
+            color: #e74c3c;
+        }
+        
+        .tracking-progress {
+            padding: 30px 20px;
+            position: relative;
+            height: 80px;
+        }
+        
+        .progress-point {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #ddd;
+            position: absolute;
+            top: 32px;
+            transform: translateY(-50%);
+            z-index: 2;
+        }
+        
+        .progress-point.active {
+            background-color: #2ecc71;
+            box-shadow: 0 0 0 4px rgba(46, 204, 113, 0.2);
+        }
+        
+        .progress-point:nth-child(1) {
+            left: 10%;
+        }
+        
+        .progress-point:nth-child(2) {
+            left: 50%;
+        }
+        
+        .progress-point:nth-child(3) {
+            left: 90%;
+        }
+        
+        .progress-line {
+            height: 4px;
+            background-color: #ddd;
+            position: absolute;
+            top: 32px;
+            left: 10%;
+            width: 80%;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+        
+        .progress-fill {
+            height: 4px;
+            background-color: #2ecc71;
+            position: absolute;
+            top: 32px;
+            left: 10%;
+            width: 0%;
+            transform: translateY(-50%);
+            z-index: 1;
+            transition: width 1s ease-in-out;
+        }
+        
+        .progress-label {
+            position: absolute;
+            top: 50px;
+            transform: translateX(-50%);
+            font-size: 12px;
+            color: #7f8c8d;
+            white-space: nowrap;
+        }
+        
+        .tracking-map {
+            height: 200px;
+            background-color: #eaf4fc;
+            position: relative;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            overflow: hidden;
+        }
+        
+        .tracking-map::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(90deg, transparent 24px, rgba(200, 200, 200, 0.2) 24px, transparent 25px),
+                linear-gradient(180deg, transparent 24px, rgba(200, 200, 200, 0.2) 24px, transparent 25px);
+            background-size: 25px 25px;
+        }
+        
+        .tracking-map > div {
+            transition: all 1s ease-in-out;
+        }
+        
+        .tracking-actions {
+            display: flex;
+            padding: 20px;
+            gap: 15px;
+        }
+        
+        .tracking-btn {
+            flex: 1;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+        
+        .call-btn {
+            background-color: #2ecc71;
+            color: white;
+        }
+        
+        .call-btn:hover {
+            background-color: #27ae60;
+            transform: translateY(-2px);
+        }
+        
+        .cancel-btn {
+            background-color: #f9f9f9;
+            color: #e74c3c;
+            border: 1px solid #eee;
+        }
+        
+        .cancel-btn:hover {
+            background-color: #ffeaea;
+            transform: translateY(-2px);
+        }
+        
+        /* Animation for the cab movement */
+        @keyframes moveCab {
+            0% {
+                left: 30%;
+            }
+            100% {
+                left: 70%;
+            }
+        }
+
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .nav-desktop {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero {
+                background-position: 75% center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                height: 70vh;
+                background-position: 80% center;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .hero-content {
+                text-align: center;
+                margin: 0 auto;
+            }
+
+            #bookingForm {
+                margin: 30px 20px;
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                height: 60vh;
+                background-position: 85% center;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section-title h2 {
+                font-size: 28px;
+            }
+
+            .nav-mobile {
+                right: 10px;
+                left: 10px;
+                width: auto;
+            }
+
+            #bookingForm {
+                margin: 20px 15px;
+                padding: 15px;
+            }
+        }
+
+     .upi-modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(6px);
+    
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* 🔹 Modal Content */
+.upi-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    width: 320px;
+}
+
+/* 🔹 Payment Options in Column */
+.upi-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 15px 0;
+}
+
+/* 🔹 Each Option */
+.upi-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Hover effect */
+.upi-option:hover {
+    background: #f1f1f1;
+    border-color: #007bff;
+    transform: scale(1.02);
+}
+.upi-option.active {
+    border-color: #007bff;
+    background: #e7f1ff;
+    transform: scale(1.03);
+    font-weight: 600;
+}
+/* 🔹 Fix Icon Size */
+.upi-option img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+/* 🔹 Text */
+.upi-option span {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* 🔹 Buttons */
+.pay-btn {
+    background: #007bff;
+    color: #fff;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+}
+.close-btn {
+    background: #dc3545;
+    color: #fff;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 8px;
+    width: 100%;
+}
+.upi-option.active {
+    border-color: #007bff;
+    background: #e7f1ff;
+    transform: scale(1.03);
+    font-weight: 600;
+}
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="#" class="logo">Speed<span>Up</span></a>
+
+            <nav class="nav-desktop">
+                <a href="#">Home</a>
+                <a href="#cars">Our Cars</a>
+                <a href="about.html">About Us</a>
+                <a href="#contact">Contact</a>
+                <a href="terms.html">Terms</a>
+                <!-- NEW: Sign Up Button in Header -->
+                <a href="signin.html" class="signup-btn">Sign Up</a>
+            </nav>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav class="nav-mobile" id="navMobile">
+                <a href="#hero"><i class="fas fa-home"> </i>  Home</a>
+                <a href="#cars"><i class="fas fa-car"></i>  Our Cars</a>
+                <a href="about.html"><i class="fas fa-info-circle"></i>  About Us</a>
+                <a href="#contact"><i class="fas fa-phone"></i>  Contact</a>
+                <a href="terms.html"><i class="fas fa-file-alt"></i>  Terms</a>
+                <!-- NEW: Sign Up Button in Mobile Menu -->
+                <a href="signin.html" class="signup-btn" style="text-align: center; margin-top: 10px;">Sign Up</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Premium Cab Services For Your Comfort</h1>
+                <p>Book a ride with SpeedUp and experience luxury travel at affordable prices. Available 24/7 across the
+                    city.</p>
+                <a href="#container" class="btn">Book Now</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Booking Section - Now properly centered -->
+    <div class="container" id="container">
+        <form id="bookingForm" method="POST" action="/book">
+            <div class="form-group">
+                <label for="pickup">Pickup Location</label>
+                <input type="text" id="pickup" name="pickup" placeholder="Enter pickup address" required>
+            </div>
+
+            <div class="form-group">
+                <label for="destination">Destination</label>
+                <input type="text" id="destination" name="destination" placeholder="Enter destination address" required>
+            </div>
+
+            <div class="form-group">
+                <label for="date">Date</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="time">Time</label>
+                <input type="time" id="time" name="time" required>
+            </div>
+
+            <div class="form-group">
+                <label for="payment">Payment Method</label>
+                <select id="payment" name="payment" required>
+                    <option value="">Select Payment</option>
+                    <option value="COD">Cash on Delivery</option>
+                    <option value="UPI">UPI</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="passengerCount">Passenger Count</label>
+                <input type="number" id="passengerCount" name="passengerCount" min="1" max="8" required>
+            </div>
+
+            <div class="form-group">
+                <label for="carType">Car Type</label>
+                <select id="carType" name="carType" required>
+                    <option value="">Select Car</option>
+                    <option value="economy">Economy</option>
+                    <option value="comfort">Comfort</option>
+                    <option value="luxury">Luxury</option>
+                    <option value="suv">SUV</option>
+                    <option value="minivan">Minivan</option>
+                </select>
+            </div>
+            
+            <!-- Fare Estimate Section -->
+            <div class="fare-estimate" id="fareEstimate">
+                <h3>Fare Estimate</h3>
+                <div class="fare-details">
+                    <span>Distance:</span>
+                    <span id="distanceValue">0 km</span>
+                </div>
+                <div class="fare-details">
+                    <span>Rate:</span>
+                    <span id="rateValue">₹0.00/km</span>
+                </div>
+                <div class="fare-total">
+                    <span>Total Fare:</span>
+                    <span id="totalFare">₹0.00</span>
+                </div>
+            </div>
+
+            <button type="submit" class="btn">Confirm Booking</button>
+        </form>
+    </div>
+
+    <div class="cab-tracking-modal" id="cabTrackingModal">
+        <div class="tracking-content">
+            <button class="close-tracking" id="closeTracking">&times;</button>
+            
+            <div class="tracking-header">
+                <i class="fas fa-car-side tracking-icon"></i>
+                <h2>Your Cab is Coming!</h2>
+            </div>
+            
+            <div class="driver-info">
+                <div class="driver-photo">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Driver">
+                </div>
+                <div class="driver-details">
+                    <div class="driver-name">Rajesh Kumar</div>
+                    <div class="driver-car">Swift Dzire • KA 01 AB 1234</div>
+                    <div class="driver-rating">
+                        <i class="fas fa-star" style="color: #f1c40f;"></i>
+                        <i class="fas fa-star" style="color: #f1c40f;"></i>
+                        <i class="fas fa-star" style="color: #f1c40f;"></i>
+                        <i class="fas fa-star" style="color: #f1c40f;"></i>
+                        <i class="fas fa-star-half-alt" style="color: #f1c40f;"></i>
+                        <span>4.7 (128 reviews)</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tracking-status">
+                <p>Your driver is on the way to your pickup location</p>
+                <div class="eta">ETA: <span id="etaTime">8</span> minutes</div>
+            </div>
+            
+            <div class="tracking-progress">
+                <div class="progress-point active"></div>
+                <div class="progress-point"></div>
+                <div class="progress-point"></div>
+                <div class="progress-line"></div>
+                <div class="progress-fill" id="progressFill"></div>
+                
+                <div class="progress-label" style="left: 10%;">Driver Assigned</div>
+                <div class="progress-label" style="left: 50%;">On the Way</div>
+                <div class="progress-label" style="left: 90%;">Arrived</div>
+            </div>
+            
+            <div class="tracking-map" id="trackingMap">
+                <!-- Simple map visualization -->
+                <div style="position: absolute; top: 50%; left: 20%; transform: translate(-50%, -50%);">
+                    <i class="fas fa-map-marker-alt" style="font-size: 32px; color: #e74c3c;"></i>
+                    <div style="font-size: 12px; text-align: center;">Your Location</div>
+                </div>
+                <div style="position: absolute; top: 50%; left: 80%; transform: translate(-50%, -50%);">
+                    <i class="fas fa-flag" style="font-size: 32px; color: #2ecc71;"></i>
+                    <div style="font-size: 12px; text-align: center;">Destination</div>
+                </div>
+                <div style="position: absolute; top: 50%; left: 30%; transform: translate(-50%, -50%);" id="cabMarker">
+                    <i class="fas fa-car-side" style="font-size: 32px; color: #3498db;"></i>
+                    <div style="font-size: 12px; text-align: center;">Your Cab</div>
+                </div>
+            </div>
+            
+            <div class="tracking-actions">
+                <button class="tracking-btn call-btn">
+                    <i class="fas fa-phone"></i> Call Driver
+                </button>
+                <button class="tracking-btn cancel-btn" id="cancelRideBtn">
+                    <i class="fas fa-times"></i> Cancel Ride
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+<div id="upi-modal" class="upi-modal">
+    <div class="upi-content">
+        <h3>Select your UPI app</h3>
+
+        <div class="upi-options" data-method="Google play">
+            <div class="upi-option">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyVO9LUWF81Ov6LZR50eDNu5rNFCpkn0LwYQ&s" alt="GPay">
+                <span>Google Pay</span>
+            </div>
+            <div class="upi-option" data-method="phonepe">
+                <img src="https://play-lh.googleusercontent.com/6iyA2zVz5PyyMjK5SIxdUhrb7oh9cYVXJ93q6DZkmx07Er1o90PXYeo6mzL4VC2Gj9s" alt="PhonePe">
+                <span>PhonePe</span>
+            </div>
+            <div class="upi-option"data-method="BHIM-UPI">
+                <img src="https://www.dhyeyaias.com/storage/media/BHIM-UPI.jpg" alt="BHIM UPI">
+                <span>BHIM UPI</span>
+            </div>
+        </div>
+
+        <button class="pay-btn" onclick="paynow()">Pay Now</button>
+        <button class="close-btn" onclick="cancel()">Close</button>
+    </div>
+</div>
+    <!-- Cars Section -->
+    <section class="section" id="cars">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Fleet</h2>
+                <p>Choose from our wide selection of vehicles to suit your needs and budget.</p>
+            </div>
+
+            <div class="cars-grid">
+                <!-- Car 1 -->
+                <div class="car-card">
+                    <div class="car-img">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/30536375-bc78-4c66-bf6a-81cab1b3eeb8.png"
+                            alt="Red compact economy car with modern design features and sporty appearance">
+                    </div>
+                    <div class="car-info">
+                        <h3>Swift Economy</h3>
+                        <span class="car-type">Economy Class</span>
+                        <p>Perfect for short city rides with great fuel efficiency.</p>
+                        <div class="car-features">
+                            <span>4 Seats</span>
+                            <span>AC</span>
+                            <span>Free WiFi</span>
+                        </div>
+                        <div class="car-price">₹40/km</div>
+                    </div>
+                </div>
+
+                <!-- Car 2 -->
+                <div class="car-card">
+                    <div class="car-img">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/327fb4ca-9745-486a-b7d5-2092ef334ebb.png"
+                            alt="Silver sedan with sleek design and premium interior in motion on city streets">
+                    </div>
+                    <div class="car-info">
+                        <h3>Comfort Sedan</h3>
+                        <span class="car-type">Comfort Class</span>
+                        <p>Spacious and comfortable for business or leisure.</p>
+                        <div class="car-features">
+                            <span>4 Seats</span>
+                            <span>Premium AC</span>
+                            <span>Extra Legroom</span>
+                        </div>
+                        <div class="car-price">₹50.00/km</div>
+                    </div>
+                </div>
+
+                <!-- Car 3 -->
+                <div class="car-card">
+                    <div class="car-img">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e2c3dcd7-8fa0-4dbb-bbbc-732b4085da5b.png"
+                            alt="Black luxury car with glossy finish and leather interior parked in front of hotel">
+                    </div>
+                    <div class="car-info">
+                        <h3>Ultimate Luxury</h3>
+                        <span class="car-type">Luxury Class</span>
+                        <p>Experience premium comfort with our executive cars.</p>
+                        <div class="car-features">
+                            <span>4 Seats</span>
+                            <span>VIP Service</span>
+                            <span>Massage Seats</span>
+                        </div>
+                        <div class="car-price">₹100/km</div>
+                    </div>
+                </div>
+
+                <!-- Car 4 -->
+                <div class="car-card">
+                    <div class="car-img">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/0f38baf4-3dd6-4f46-9456-77a2802a141a.png"
+                            alt="White spacious SUV with rugged design and modern features driving on highway">
+                    </div>
+                    <div class="car-info">
+                        <h3>Premium SUV</h3>
+                        <span class="car-type">SUV Class</span>
+                        <p>Spacious and powerful for groups or extra luggage.</p>
+                        <div class="car-features">
+                            <span>6 Seats</span>
+                            <span>All-wheel drive</span>
+                            <span>Cargo Space</span>
+                        </div>
+                        <div class="car-price">₹150/km</div>
+                    </div>
+                </div>
+
+                <!-- Car 5 -->
+                <div class="car-card">
+                    <div class="car-img">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7500b04a-d56e-42f9-97ed-720a403b402c.png"
+                            alt="Blue minivan with sliding doors and spacious interior for family transportation">
+                    </div>
+                    <div class="car-info">
+                        <h3>Family Minivan</h3>
+                        <span class="car-type">Minivan Class</span>
+                        <p>Ideal for family trips or group travel.</p>
+                        <div class="car-features">
+                            <span>8 Seats</span>
+                            <span>Child Seats</span>
+                            <span>Entertainment</span>
+                        </div>
+                        <div class="car-price">₹200/km</div>
+                    </div>
+                </div>
+
+                <!-- Car 6 -->
+                <div class="car-card">
+                    <div class="car-img">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/dd0f4e85-1686-46a5-9aa8-a7ed6bd174f4.png"
+                            alt="Eco-friendly electric vehicle with modern design charging at station">
+                    </div>
+                    <div class="car-info">
+                        <h3>Eco Ride</h3>
+                        <span class="car-type">Electric Vehicle</span>
+                        <p>Environmentally friendly with zero emissions.</p>
+                        <div class="car-features">
+                            <span>4 Seats</span>
+                            <span>Silent Ride</span>
+                            <span>Carbon Neutral</span>
+                        </div>
+                        <div class="car-price">₹245/km</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="promo-section">
+  <div class="promo-text">
+    <h2>Get Quick Rides, <span>Low Fares</span></h2>
+    <p>
+      In SpeedUp we ensure our customers get rides quickly at the most
+      affordable prices.
+    </p>
+    <a href="#container" class="promo-btn">Book a ride →</a>
+  </div>
+
+  <div class="promo-images">
+    <img src="./assets/promo1.jpg" alt="Shopping" />
+    <img src="./assets/promo2.jpg" alt="Tourists"/>
+    <img src="./assets/promo3.jpg" alt="Airport" />
+    <img src="./assets/promo4.jpg" alt="Picnic"/>
+  </div>
+</section>
+
+   <!-- How it Works Section -->
+<section class="how-it-works">
+  <div class="container">
+    <h2>How it Works</h2>
+
+    <!-- Steps -->
+    <div class="steps">
+      <div class="step">
+        <div class="icon">
+          <img src="./assets/book.jpg" alt="Book Ride">
+        </div>
+        <h3>Book</h3>
+        <p>Choose a ride and driver</p>
+      </div>
+
+      <div class="step">
+        <div class="icon">
+          <img src="./assets/ride.jpg" alt="Ride Car">
+        </div>
+        <h3>Ride</h3>
+        <p>Travel safe to your destination</p>
+      </div>
+
+      <div class="step">
+        <div class="icon">
+          <img src="./assets/payment.jpg" alt="Pay">
+        </div>
+        <h3>Pay Directly</h3>
+        <p>100% fare goes to the driver</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+    
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: white;">Get In Touch</h2>
+                <p style="color: rgba(255,255,255,0.8);">Have questions? Reach out to our customer support team.</p>
+            </div>
+
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p>We're here to help and answer any questions you might have. We look forward to hearing from you.
+                    </p>
+
+                    <div class="contact-details">
+                        <div>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 SpeedUp Avenue, City Center, Country</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-phone"></i>
+                            <span>+1 (123) 456-7890</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-envelope"></i>
+                            <span>support@speedup.com</span>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" style="margin-right: 15px;"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" style="margin-right: 15px;"><i class="fab fa-twitter"></i></a>
+                        <a href="#" style="margin-right: 15px;"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+               <div>
+  <h3>Send Us a Message</h3>
+  <form id="contactForm" method="POST" style="margin-top: 20px;">
+    <div class="form-group">
+      <input type="text" name="name" placeholder="Your Name" required
+        style="width: 100%; padding: 12px; border-radius: 4px; border: none;">
+    </div>
+    <div class="form-group">
+      <input type="email" name="email" placeholder="Your Email" required
+        style="width: 100%; padding: 12px; border-radius: 4px; border: none;">
+    </div>
+    <div class="form-group">
+      <input type="text" name="subject" placeholder="Subject"
+        style="width: 100%; padding: 12px; border-radius: 4px; border: none;">
+    </div>
+    <div class="form-group">
+      <textarea name="message" placeholder="Your Message" rows="5" required
+        style="width: 100%; padding: 12px; border-radius: 4px; border: none;"></textarea>
+    </div>
+    <button id="sendBtn" type="submit" class="btn"
+      style="background-color: var(--secondary-color); color: white; border: none; padding: 12px 30px; cursor: pointer;">
+      Send Message
+    </button>
+  </form>
+</div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>SpeedUp</h3>
+                    <p>Premium cab services for all your transportation needs. Safe, reliable, and comfortable rides at
+                        competitive prices.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#cars">Our Fleet</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#terms">Terms</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#">Help Center</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Headquarters</h3>
+                    <p>Park Circus<br>
+                    Kolkata, India<br>
+                    PIN: 700124<br>
+                    Phone: +91 9568274610<br>
+                    Email: speedup@gmail.com
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2023 SpeedUp Cab Services. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+        <script>
+    const paymentSelect = document.getElementById("payment");
+    const upiSection = document.getElementById("upi-modal");
+
+    paymentSelect.addEventListener("change", function () {
+        if (this.value === "UPI") {
+            upiSection.style.display = "flex";  
+        } else {
+            upiSection.style.display = "none";  
+        }
+    });
+function validForm() {
+    const pickup = document.getElementById("payment").value.trim();
+    const destination = document.getElementById("destination").value.trim();
+    const date = document.getElementById("date").value.trim();
+    const time = document.getElementById("time").value.trim();
+    const passengerCount = document.getElementById("passengerCount").value.trim();
+    const carType = document.getElementById("carType").value.trim();
+    
+    if (pickup === "" || destination === "" || date === "" || time === "" || passengerCount === "" || carType === "") {
+        alert("⚠️ Please fill all fields before proceeding!");
+        return false;
+    }
+    return true;
+}
+
+function paynow() {
+    if (!validForm()) return; // ✅ fixed
+
+    alert("✅ Payment completed successfully!");
+    const upiSection = document.getElementById("upi-modal");
+    upiSection.style.display = "none";
+
+    // window.location.href="/pay"; // redirect if needed
+}
+
+function cancel() {
+    // if (!validForm()) return; // optional → only if you want validation before cancel
+
+    alert("cancel your payment process");
+    const upiSection = document.getElementById("upi-modal");
+    upiSection.style.display = "none";
+}
+
+
+
+    
+        const options = document.querySelectorAll(".upi-option");
+    let selectedMethod = null;
+
+    options.forEach(option => {
+        option.addEventListener("click", () => {
+            // remove active from all
+            options.forEach(opt => opt.classList.remove("active"));
+
+            // add active to clicked one
+            option.classList.add("active");
+
+            // store selected method
+            selectedMethod = option.getAttribute("data-method");
+            console.log("Selected:", selectedMethod);
+        });
+    });
+
+    // Example: handle Pay Now button
+   document.querySelector(".pay-btn").addEventListener("click", () => {
+    if (selectedMethod) {
+        alert("You selected: " + selectedMethod);
+    } else {
+        alert("Please select a UPI method first!");
+    }
+});
+
+</script>
+<script src="form.js"></script>
+</body>
+
+</html>
