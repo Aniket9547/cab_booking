@@ -18,6 +18,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public")); // static files (HTML, CSS, JS)
 
+const session = require("express-session");
+
+app.use(session({
+  secret: "aniket",  
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false } 
+}));
 
 
 
@@ -84,6 +92,10 @@ app.post("/user-login", async (req, res) => {
     return res.json({ error: true });
   }
 });
+app.get("/signout", (req, res) => {
+  req.session.destroy();
+  res.redirect("/");
+});
 
 // BOOKING 
 app.post("/book", async (req, res) => {
@@ -143,5 +155,6 @@ app.post("/send-message", async (req, res) => {
 app.listen(port, () => {
   console.log(`🚀 Server running at http://localhost:${port}`);
 });
+
 
 
