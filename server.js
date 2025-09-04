@@ -127,15 +127,15 @@ app.post("/send-message", async (req, res) => {
     let transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: "aniketbanerjee9547@gmail.com", // 👉 tera Gmail
-        pass: "hnmb curz qawz nclh",   // 👉 Gmail App Password
+        user: process.env.EMAIL_USER, // 👈 from .env
+        pass: process.env.EMAIL_PASS, // 👈 from .env
       },
     });
 
     // Mail options
     let mailOptions = {
-      from: email,  // sender (form ka email)
-      to: "aniketbanerjee9547@gmail.com", // 👉 yaha apna Gmail
+      from: email,
+      to: process.env.EMAIL_USER, // 👈 from .env
       subject: subject || "New Contact Form Message",
       text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
     };
@@ -150,11 +150,11 @@ app.post("/send-message", async (req, res) => {
   }
 });
 
-
 // Server start
 app.listen(port, () => {
   console.log(`🚀 Server running at http://localhost:${port}`);
 });
+
 
 
 
